@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class Configure_a_sensor extends javax.swing.JFrame {
      static int flog=0;
+     static java.util.Timer logtimer;
     /**
      * Creates new form Configure_a_sensor
      */
@@ -340,7 +341,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
             
            
             if(flog==0){              
-            java.util.Timer logtimer = new java.util.Timer();
+            logtimer = new java.util.Timer();
             TimerTask logtask = new timerTask(){
             @Override
             public void run(){
@@ -352,7 +353,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
                 }
             }
             };
-            logtimer.scheduleAtFixedRate(logtask, 0, 1000*100000); 
+            logtimer.scheduleAtFixedRate(logtask, 0, 1000*10000); 
               flog++;
             }
             

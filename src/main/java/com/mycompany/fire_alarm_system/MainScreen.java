@@ -25,7 +25,6 @@ public class MainScreen extends javax.swing.JFrame {
     static Map<String, Location> f3 = new HashMap<String, Location>();
     static Map<String, Location> f4 = new HashMap<String, Location>();
     static Map<String, Location> f5 = new HashMap<String, Location>();
-    static int tim=0; 
     static String emailID;
     static boolean valid;
     Timer timer = new Timer();
@@ -236,9 +235,13 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_configureMouseClicked
     //ActionListener for Quiting window.
     private void quitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitMouseClicked
-        if(tim==1)
-            timer.cancel();
+        
+        Start_Monitoring.timer.cancel();
+        Configure_a_sensor.logtimer.cancel();
+        Start_Monitoring.mailtimer.cancel();
+        System.exit(0);
         dashboard.dispose();
+        
     }//GEN-LAST:event_quitMouseClicked
     //ActionListener for directing to StartMonituring window.
     private void monitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorMouseClicked

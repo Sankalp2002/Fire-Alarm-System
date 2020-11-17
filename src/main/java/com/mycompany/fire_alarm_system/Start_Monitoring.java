@@ -34,6 +34,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class Start_Monitoring extends javax.swing.JFrame {
     static int fno=-1;
     static int mailtrigger;
+    static java.util.Timer timer;
+    static java.util.Timer mailtimer;
     /**
      * Creates new form Start_Monitoring
      */
@@ -324,7 +326,6 @@ public class Start_Monitoring extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         MainScreen.dashboard.setVisible(true);
-        MainScreen.tim=1;
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -332,7 +333,7 @@ public class Start_Monitoring extends javax.swing.JFrame {
         // TODO add your handling code here:
         fno=0;
         Location.allSet();
-        java.util.Timer timer = new java.util.Timer();
+        timer = new java.util.Timer();
         TimerTask task = new timerTask();
         timer.scheduleAtFixedRate(task, 0, 3000);
         
@@ -342,7 +343,7 @@ public class Start_Monitoring extends javax.swing.JFrame {
         tM0.addRow(data);
         }
         
-        java.util.Timer mailtimer = new java.util.Timer();
+        mailtimer = new java.util.Timer();
         TimerTask mailtask = new timerTask(){
             @Override
             public void run(){
@@ -357,7 +358,7 @@ public class Start_Monitoring extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jPanel2,"Email Alert Sent.");}
             }
     };
-        mailtimer.scheduleAtFixedRate(mailtask, 0, 60000); 
+        mailtimer.scheduleAtFixedRate(mailtask, 0, 15000); 
 
     }//GEN-LAST:event_jButton3MouseClicked
 

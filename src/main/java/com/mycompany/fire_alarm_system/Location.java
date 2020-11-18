@@ -23,7 +23,7 @@ Stvalue, Htvalue, Ctvalue, Scvalue, Hcvalue, Ccvalue, Sid, Hid, Cid,;
 */
 public class Location {
     static float Stvalue, Htvalue, Ctvalue;
-    static int Sdur, Hdur, Cdur, log, vol;
+    static int Sdur, Hdur, Cdur, log=10, vol=90;
     float Scvalue, Hcvalue, Ccvalue;
     int mcp;
     String Sid, Hid, Cid;

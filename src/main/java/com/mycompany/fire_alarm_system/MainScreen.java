@@ -5,6 +5,7 @@
  */
 package com.mycompany.fire_alarm_system;
 
+import static com.mycompany.fire_alarm_system.Configure_a_sensor.isLogTimer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -35,6 +36,7 @@ public class MainScreen extends javax.swing.JFrame {
         valid=false;
         dashboard=this;
         dashboard.setDefaultCloseOperation(MainScreen.EXIT_ON_CLOSE);
+        
     }
 
     /**
@@ -234,12 +236,10 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_configureMouseClicked
     //ActionListener for Quiting window.
     private void quitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitMouseClicked
-        
-        Start_Monitoring.timer.cancel();
-        Configure_a_sensor.logtimer.cancel();
-        Start_Monitoring.mailtimer.cancel();
-        dashboard.dispose();
-        
+        if(isLogTimer==true)
+            Configure_a_sensor.logtimer.cancel();
+        System.exit(0);
+        //dashboard.dispose();
     }//GEN-LAST:event_quitMouseClicked
     //ActionListener for directing to StartMonituring window.
     private void monitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorMouseClicked
@@ -284,14 +284,13 @@ public class MainScreen extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
             Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        w.dispose();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainScreen().setVisible(true);
             }
         });
-        w.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

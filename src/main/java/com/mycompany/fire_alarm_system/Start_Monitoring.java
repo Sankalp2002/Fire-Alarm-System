@@ -36,6 +36,8 @@ public class Start_Monitoring extends javax.swing.JFrame {
     static int mailtrigger;
     static java.util.Timer timer;
     static java.util.Timer mailtimer;
+    static boolean isSenTimer=false;
+    static boolean isMailTimer=false;
     /**
      * Creates new form Start_Monitoring
      */
@@ -326,6 +328,10 @@ public class Start_Monitoring extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         MainScreen.dashboard.setVisible(true);
+        if(isSenTimer==true)
+            Start_Monitoring.timer.cancel();
+        if(isMailTimer==true)
+            Start_Monitoring.mailtimer.cancel();
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -335,8 +341,8 @@ public class Start_Monitoring extends javax.swing.JFrame {
         Location.allSet();
         timer = new java.util.Timer();
         TimerTask task = new timerTask();
-        timer.scheduleAtFixedRate(task, 0, 3000);
-        
+        timer.scheduleAtFixedRate(task, 0, 2000);
+        isSenTimer=true;
         DefaultTableModel tM0=(DefaultTableModel)jTable1.getModel();
         for(Entry<String,Location> mp : f0.entrySet()){
         String data[]={mp.getKey(),String.valueOf(mp.getValue().Scvalue),String.valueOf(mp.getValue().Hcvalue),String.valueOf(mp.getValue().Ccvalue)};
@@ -359,6 +365,7 @@ public class Start_Monitoring extends javax.swing.JFrame {
             }
     };
         mailtimer.scheduleAtFixedRate(mailtask, 0, 15000); 
+        isMailTimer=true;
 
     }//GEN-LAST:event_jButton3MouseClicked
 

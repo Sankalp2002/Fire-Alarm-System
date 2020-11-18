@@ -13,13 +13,33 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class Configure_a_sensor extends javax.swing.JFrame {
-     static int flog=0;
+     static boolean isLogTimer=false;
      static java.util.Timer logtimer;
+     static int logIndex;
     /**
      * Creates new form Configure_a_sensor
      */
     public Configure_a_sensor() {
         initComponents();
+        jSlider1.setValue(Location.vol);
+        switch(Location.log){
+            case 10:
+                logIndex=0;
+                break;
+            case 15:
+                logIndex=1;
+                break;
+            case 30:
+                logIndex=2;
+                break;
+            case 60:
+                logIndex=3;
+                break;
+            case 120:
+                logIndex=4;
+                break;
+        }
+        jComboBox2.setSelectedIndex(logIndex);
         if(MainScreen.valid==true){
             jLabel7.setText("Email ID (Already Present):");}
     }
@@ -340,7 +360,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Configuration Successful");
             
            
-            if(flog==0){              
+            if(isLogTimer==false){              
             logtimer = new java.util.Timer();
             TimerTask logtask = new timerTask(){
             @Override
@@ -354,7 +374,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
             }
             };
             logtimer.scheduleAtFixedRate(logtask, 0, 1000*10000); 
-              flog++;
+              isLogTimer=true;
             }
             
             

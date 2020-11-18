@@ -149,6 +149,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(108, 120, 137));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4", "8" }));
+        jComboBox1.setSelectedIndex(2);
         jComboBox1.setToolTipText("Time(in minutes)");
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 

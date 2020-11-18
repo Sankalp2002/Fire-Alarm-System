@@ -136,8 +136,8 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Log Interval(sec):");
 
-        jTextField1.setBackground(new java.awt.Color(108, 120, 137));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField1.setBackground(new java.awt.Color(44, 62, 80));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setOpaque(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,13 +147,13 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         });
 
         jComboBox1.setBackground(new java.awt.Color(108, 120, 137));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4", "8" }));
         jComboBox1.setSelectedIndex(2);
         jComboBox1.setToolTipText("Time(in minutes)");
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jSlider1.setBackground(new java.awt.Color(204, 204, 204));
+        jSlider1.setBackground(new java.awt.Color(44, 62, 80));
         jSlider1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jSlider1.setMajorTickSpacing(10);
         jSlider1.setMaximum(120);
@@ -165,7 +165,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         jSlider1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jComboBox2.setBackground(new java.awt.Color(108, 120, 137));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "15", "30", "60", "120", " " }));
         jComboBox2.setToolTipText("Time(in second)");
         jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -205,7 +205,7 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         jLabel5.setText("Sensor Type:");
 
         jComboBox3.setBackground(new java.awt.Color(108, 120, 137));
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CO Sensor", "Heat Sensor", "Smoke Sensor" }));
         jComboBox3.setToolTipText("Select sensor type.");
         jComboBox3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -224,8 +224,8 @@ public class Configure_a_sensor extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Email ID (for Alerts):");
 
-        jTextField2.setBackground(new java.awt.Color(108, 120, 137));
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField2.setBackground(new java.awt.Color(44, 62, 80));
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setOpaque(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {

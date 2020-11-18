@@ -12,7 +12,6 @@ import static com.mycompany.fire_alarm_system.MainScreen.f4;
 import static com.mycompany.fire_alarm_system.MainScreen.f5;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.Thread.sleep;
 import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;

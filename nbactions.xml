@@ -41,7 +41,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath ${packageClassName}</exec.args>
+                <exec.args>-classpath %classpath com.mycompany.fire_alarm_system.MainScreen</exec.args>
                 <exec.executable>java</exec.executable>
                 <exec.workingdir>C:\Users\rajen\Documents\NetBeansProjects\Fire_Alarm_System</exec.workingdir>
             </properties>

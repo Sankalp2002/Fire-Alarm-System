@@ -24,7 +24,7 @@ public class FileIO {
         try {
             //File file = new File(filepath);
             String s;
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm:ss");  
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm:ss");  
             LocalDateTime now = LocalDateTime.now();  
             s=dtf.format(now);
             ser="\n"+s+" PM com.mycompany.fire_alarm_system.LogGenerator <init>\n"+ser;

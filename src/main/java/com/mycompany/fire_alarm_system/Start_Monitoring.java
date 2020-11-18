@@ -170,9 +170,9 @@ public class Start_Monitoring extends javax.swing.JFrame {
         jTable2.setRowHeight(25);
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setMinWidth(150);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(160);
-            jTable2.getColumnModel().getColumn(0).setMaxWidth(220);
+            jTable2.getColumnModel().getColumn(0).setMinWidth(120);
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(140);
+            jTable2.getColumnModel().getColumn(0).setMaxWidth(180);
             jTable2.getColumnModel().getColumn(1).setMinWidth(100);
             jTable2.getColumnModel().getColumn(1).setPreferredWidth(120);
             jTable2.getColumnModel().getColumn(1).setMaxWidth(150);

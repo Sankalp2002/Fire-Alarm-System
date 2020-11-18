@@ -15,6 +15,7 @@ import static com.mycompany.fire_alarm_system.Start_Monitoring.fno;
 import static com.mycompany.fire_alarm_system.Start_Monitoring.jTable1;
 import static com.mycompany.fire_alarm_system.Start_Monitoring.jTable2;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
@@ -27,7 +28,7 @@ public class timerTask extends TimerTask{
 
     @Override
     public void run() {
-        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         Location.allSet();
         DefaultTableModel tm1=(DefaultTableModel)jTable1.getModel();
         DefaultTableModel tm2=(DefaultTableModel)jTable2.getModel();
@@ -47,19 +48,19 @@ public class timerTask extends TimerTask{
 
                 for(Map.Entry<String,Location> mp : f0.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","Ground",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","Ground",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","Ground",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","Ground",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","Ground",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","Ground",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual CallPoint","Ground",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual CallPoint","Ground",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }
@@ -81,19 +82,19 @@ public class timerTask extends TimerTask{
                 //DefaultTableModel tm14=(DefaultTableModel)jTable2.getModel();
                 for(Map.Entry<String,Location> mp : f1.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","First",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","First",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","First",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","First",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","First",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","First",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual CallPoint","First",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual CallPoint","First",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }
@@ -112,19 +113,19 @@ public class timerTask extends TimerTask{
 
                 for(Map.Entry<String,Location> mp : f2.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","Second",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","Second",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","Second",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","Second",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","Second",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","Second",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual Callpoint","Second",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual Callpoint","Second",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }
@@ -143,19 +144,19 @@ public class timerTask extends TimerTask{
 
                 for(Map.Entry<String,Location> mp : f3.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","Third",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","Third",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","Third",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","Third",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","Third",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","Third",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual Callpoint","Third",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual Callpoint","Third",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }
@@ -174,19 +175,19 @@ public class timerTask extends TimerTask{
 
                 for(Map.Entry<String,Location> mp : f4.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","Fourth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","Fourth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","Fourth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","Fourth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","Fourth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","Fourth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual Callpoint","Fourth",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual Callpoint","Fourth",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }
@@ -205,19 +206,19 @@ public class timerTask extends TimerTask{
 
                 for(Map.Entry<String,Location> mp : f5.entrySet()){
                     if(mp.getValue().Scvalue>Location.Stvalue){
-                        String d[]={""+LocalTime.now(),"Smoke","Fifth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Smoke","Fifth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Hcvalue>Location.Htvalue){
-                        String d[]={""+LocalTime.now(),"Heat","Fifth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Heat","Fifth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().Ccvalue>Location.Ctvalue){
-                        String d[]={""+LocalTime.now(),"CO","Fifth",mp.getKey(),"Threshold Breached!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"CO","Fifth",mp.getKey(),"Threshold Breached!"};
                         tm2.addRow(d);
                     }
                     if(mp.getValue().mcp==1){
-                        String d[]={""+LocalTime.now(),"Manual Callpoint","Fifth",mp.getKey(),"Manual Alarm Triggered!"};
+                        String d[]={""+dtf.format(LocalTime.now()),"Manual Callpoint","Fifth",mp.getKey(),"Manual Alarm Triggered!"};
                         tm2.addRow(d);
                     }
                 }

@@ -23,10 +23,10 @@ public class FileIO {
         
         try {
             String s;
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm:ss");  
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm:ss");  
             LocalDateTime now = LocalDateTime.now();  
             s=dtf.format(now);
-            ser="\n"+s+" PM com.mycompany.fire_alarm_system.LogGenerator <init>\n"+ser;
+            ser="\n"+s+" com.mycompany.fire_alarm_system.LogGenerator <init>\n"+ser;
             FileOutputStream fileOut = new FileOutputStream(filepath);
             BufferedOutputStream bufferOut = new BufferedOutputStream(fileOut);
             byte[] bytes = ser.getBytes();

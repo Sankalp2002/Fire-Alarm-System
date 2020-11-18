@@ -5,7 +5,6 @@
  */
 package com.mycompany.fire_alarm_system;
 
-import static com.mycompany.fire_alarm_system.Start_Monitoring.fno;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;

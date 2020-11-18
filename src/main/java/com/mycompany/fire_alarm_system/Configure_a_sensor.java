@@ -358,6 +358,9 @@ public class Configure_a_sensor extends javax.swing.JFrame {
                 case 1 -> Location.conHsensor(Sensor.duration,Sensor.volume,Sensor.logint, Sensor.thresholdHeat);
                 case 2 -> Location.conSsensor(Sensor.duration,Sensor.volume,Sensor.logint, Sensor.thresholdSmoke);
             }
+            synchronized(this){
+                FileIO.WriteToFile("Configured\n"+jComboBox3.getSelectedItem()+":"+jTextField1.getText()+"\nDuration:"+Sensor.duration+"\nVolume:"+Sensor.volume+"\nLog Interval:"+Sensor.logint+"\nEmail ID:"+MainScreen.emailID+"\n");
+            }
             JOptionPane.showMessageDialog(this,"Configuration Successful");
             
            
@@ -368,7 +371,8 @@ public class Configure_a_sensor extends javax.swing.JFrame {
             public void run(){
                 Location.allSet();
                  try {
-                LogGenerator log = new LogGenerator();
+                synchronized(this){
+                LogGenerator log = new LogGenerator();}
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Configure_a_sensor.class.getName()).log(Level.SEVERE, null, ex);
                 }

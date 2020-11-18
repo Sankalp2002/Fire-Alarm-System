@@ -405,7 +405,9 @@ public class Register_a_sensor extends javax.swing.JFrame {
                             f5.put(s1.location, L);
                         break;
                 }
-                
+                synchronized(this){
+                FileIO.WriteToFile("Sensor Registered\nID:"+s1.SensorID+"\nType:"+s1.SensorType+"\nFloor:"+s1.floorno+"\nLocation:"+s1.location+"\n");
+                }
                 JOptionPane.showMessageDialog(this,"Sensor Registered.");
                 Register_a_sensor R=new Register_a_sensor();
                 R.setVisible(true);

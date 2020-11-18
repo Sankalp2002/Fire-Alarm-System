@@ -22,7 +22,6 @@ public class FileIO {
         String filepath = file.getAbsolutePath();
         
         try {
-            //File file = new File(filepath);
             String s;
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy hh:mm:ss");  
             LocalDateTime now = LocalDateTime.now();  
@@ -41,22 +40,6 @@ public class FileIO {
         }
     }
     
-//    public void ReadObjectFromFile(Object serObj) {
-//        
-//        try{    
-//            File file = new File(filepath);
-//            FileInputStream fileIn = new FileInputStream(filepath);
-//            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-//            serObj = objectIn.readObject();
-//            System.out.println(serObj);
-//            Sensor s = (Sensor)serObj;
-//            System.out.println(s.SensorType);
-//            
-//        } catch (Exception ex){
-//            
-//        }
-//        
-//    }
     
 }
 

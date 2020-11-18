@@ -1,25 +1,75 @@
 
-Nov 18, 2020 20:33:11 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+Nov 18, 2020 09:01:01 PM com.mycompany.fire_alarm_system.LogGenerator <init>
 Configured
-CO Sensor:67
+CO Sensor:56
 Duration:4
 Volume:90
 Log Interval:10
-Email ID:hello@gmail.com
-Nov 18, 2020 8:33:13 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+Email ID:rajendran02sankalp@gmail.com
+Nov 18, 2020 9:01:03 PM com.mycompany.fire_alarm_system.LogGenerator <init>
 INFO: Floor 0:
 Location: Room 1: 
-CO Sensor 63.35 Heat Sensor 0.0 Smoke Sensor 0.0
+CO Sensor 35.54 Heat Sensor 0.0 Smoke Sensor 0.0
 Floor 1:
 Floor 2:
 Floor 3:
 Floor 4:
 Floor 5:
 
-Nov 18, 2020 8:33:23 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+Nov 18, 2020 9:01:13 PM com.mycompany.fire_alarm_system.LogGenerator <init>
 INFO: Floor 0:
 Location: Room 1: 
-CO Sensor 65.13 Heat Sensor 0.0 Smoke Sensor 0.0
+CO Sensor 35.54 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 9:01:23 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 35.54 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 9:01:33 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 35.54 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 9:01:43 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 56.13 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 9:01:53 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 46.97 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 9:02:03 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 37.76 Heat Sensor 0.0 Smoke Sensor 0.0
 Floor 1:
 Floor 2:
 Floor 3:

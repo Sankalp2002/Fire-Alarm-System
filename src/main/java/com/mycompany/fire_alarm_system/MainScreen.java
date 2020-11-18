@@ -239,7 +239,6 @@ public class MainScreen extends javax.swing.JFrame {
         Start_Monitoring.timer.cancel();
         Configure_a_sensor.logtimer.cancel();
         Start_Monitoring.mailtimer.cancel();
-        System.exit(0);
         dashboard.dispose();
         
     }//GEN-LAST:event_quitMouseClicked

@@ -10,6 +10,7 @@ import static com.mycompany.fire_alarm_system.MainScreen.f2;
 import static com.mycompany.fire_alarm_system.MainScreen.f3;
 import static com.mycompany.fire_alarm_system.MainScreen.f4;
 import static com.mycompany.fire_alarm_system.MainScreen.f5;
+import java.io.File;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
 import java.util.Map;
@@ -29,8 +30,10 @@ public class LogGenerator {
     try {
 
             // We are setting handler to true = append data to file
-            //C:\\Users\\rajen\\Documents\\NetBeansProjects\\Fire-Alarm-System\\src\\main\\resources\\
-            FileHandler = new FileHandler("C:\\Users\\rajen\\Documents\\NetBeansProjects\\Fire-Alarm-System\\src\\main\\resources\\log\\FireAlarm.log", true);
+            //C:\\Users\\rajen\\Documents\\NetBeansProjects\\Fire-Alarm-System\\src\\main\\resources\\\\log\\FireAlarm.log
+            File f = new File("FireAlarm.log");
+            String path = f.getAbsolutePath();
+            FileHandler = new FileHandler(path, true);
             FireAlarmLogger.addHandler(FileHandler);
 
             // Print a brief summary of the LogRecord in a human readable format.

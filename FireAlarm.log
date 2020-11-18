@@ -1,0 +1,30 @@
+Nov 18, 2020 6:15:52 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 52.78 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 6:16:02 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 52.78 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+
+Nov 18, 2020 6:16:12 PM com.mycompany.fire_alarm_system.LogGenerator <init>
+INFO: Floor 0:
+Location: Room 1: 
+CO Sensor 52.78 Heat Sensor 0.0 Smoke Sensor 0.0
+Floor 1:
+Floor 2:
+Floor 3:
+Floor 4:
+Floor 5:
+

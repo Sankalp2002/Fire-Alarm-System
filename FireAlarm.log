@@ -1,48 +1,7 @@
 
-Nov 18, 2020 23:39:50 com.mycompany.fire_alarm_system.LogGenerator <init>
-Configured
-CO Sensor:45
-Duration:4
-Volume:90
-Log Interval:10
-Email ID:raj@gm.com
-Nov 18, 2020 11:39:51 PM com.mycompany.fire_alarm_system.LogGenerator <init>
-INFO: Floor 0:
-Location: Room 1: 
-CO Sensor 29.65 Heat Sensor 0.0 Smoke Sensor 0.0
-Floor 1:
-Floor 2:
-Floor 3:
-Floor 4:
-Floor 5:
-
-Nov 18, 2020 11:40:01 PM com.mycompany.fire_alarm_system.LogGenerator <init>
-INFO: Floor 0:
-Location: Room 1: 
-CO Sensor 29.28 Heat Sensor 0.0 Smoke Sensor 0.0
-Floor 1:
-Floor 2:
-Floor 3:
-Floor 4:
-Floor 5:
-
-Nov 18, 2020 11:40:11 PM com.mycompany.fire_alarm_system.LogGenerator <init>
-INFO: Floor 0:
-Location: Room 1: 
-CO Sensor 26.55 Heat Sensor 0.0 Smoke Sensor 0.0
-Floor 1:
-Floor 2:
-Floor 3:
-Floor 4:
-Floor 5:
-
-Nov 18, 2020 11:40:21 PM com.mycompany.fire_alarm_system.LogGenerator <init>
-INFO: Floor 0:
-Location: Room 1: 
-CO Sensor 43.16 Heat Sensor 0.0 Smoke Sensor 0.0
-Floor 1:
-Floor 2:
-Floor 3:
-Floor 4:
-Floor 5:
-
+Nov 19, 2020 02:09:43 com.mycompany.fire_alarm_system.LogGenerator <init>
+Sensor Registered
+ID:hello
+Type:CO Sensor
+Floor:0
+Location:Room 1

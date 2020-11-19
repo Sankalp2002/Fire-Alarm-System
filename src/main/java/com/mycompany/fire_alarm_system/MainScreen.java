@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.fire_alarm_system;
-
-import static com.mycompany.fire_alarm_system.Configure_a_sensor.isLogTimer;
+import static com.mycompany.fire_alarm_system.ConfigureSensor.isLogTimer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -18,25 +17,27 @@ import java.util.logging.Logger;
  * @author HP
  */
 public class MainScreen extends javax.swing.JFrame {
-    static MainScreen dashboard;
+    //static object of type MainScreen
+    static MainScreen dashBoard;
+    //Hashmaps with key as Location type and value as Location object for each floor of CC3 to store data
     static Map<String, Location> f0 = new HashMap<String, Location>();
     static Map<String, Location> f1 = new HashMap<String, Location>();
     static Map<String, Location> f2 = new HashMap<String, Location>();
     static Map<String, Location> f3 = new HashMap<String, Location>();
     static Map<String, Location> f4 = new HashMap<String, Location>();
     static Map<String, Location> f5 = new HashMap<String, Location>();
+    //String emailID to store mailID for as long as program runs
     static String emailID;
-    static boolean valid;
-    Timer timer = new Timer();
+    //boolean that stores if the mailID is present or not
+    static boolean isEmailPresent;
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
-        valid=false;
-        dashboard=this;
-        dashboard.setDefaultCloseOperation(MainScreen.EXIT_ON_CLOSE);
-        
+        isEmailPresent=false;
+        dashBoard=this;
+        dashBoard.setDefaultCloseOperation(MainScreen.EXIT_ON_CLOSE);   
     }
 
     /**
@@ -51,11 +52,11 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        Register = new javax.swing.JButton();
-        configure = new javax.swing.JButton();
-        monitor = new javax.swing.JButton();
-        quit = new javax.swing.JButton();
+        dashboardLabel = new javax.swing.JLabel();
+        registerButton = new javax.swing.JButton();
+        configureButton = new javax.swing.JButton();
+        monitorButton = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -72,10 +73,10 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(248, 148, 6));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Dashboard");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        dashboardLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        dashboardLabel.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardLabel.setText("Dashboard");
+        dashboardLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -83,60 +84,60 @@ public class MainScreen extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(dashboardLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(dashboardLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Register.setBackground(new java.awt.Color(255, 255, 255));
-        Register.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reg.png"))); // NOI18N
-        Register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Register.setFocusPainted(false);
-        Register.addMouseListener(new java.awt.event.MouseAdapter() {
+        registerButton.setBackground(new java.awt.Color(255, 255, 255));
+        registerButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reg.png"))); // NOI18N
+        registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerButton.setFocusPainted(false);
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RegisterMouseClicked(evt);
+                registerButtonMouseClicked(evt);
             }
         });
-        Register.addActionListener(new java.awt.event.ActionListener() {
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterActionPerformed(evt);
+                registerButtonActionPerformed(evt);
             }
         });
 
-        configure.setBackground(new java.awt.Color(255, 255, 255));
-        configure.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        configure.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/conf.png"))); // NOI18N
-        configure.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        configure.addMouseListener(new java.awt.event.MouseAdapter() {
+        configureButton.setBackground(new java.awt.Color(255, 255, 255));
+        configureButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        configureButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/conf.png"))); // NOI18N
+        configureButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configureButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                configureMouseClicked(evt);
+                configureButtonMouseClicked(evt);
             }
         });
 
-        monitor.setBackground(new java.awt.Color(255, 255, 255));
-        monitor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        monitor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mon.png"))); // NOI18N
-        monitor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        monitor.addMouseListener(new java.awt.event.MouseAdapter() {
+        monitorButton.setBackground(new java.awt.Color(255, 255, 255));
+        monitorButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        monitorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mon.png"))); // NOI18N
+        monitorButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        monitorButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                monitorMouseClicked(evt);
+                monitorButtonMouseClicked(evt);
             }
         });
 
-        quit.setBackground(new java.awt.Color(255, 153, 153));
-        quit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        quit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/quit.png"))); // NOI18N
-        quit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        quit.addMouseListener(new java.awt.event.MouseAdapter() {
+        quitButton.setBackground(new java.awt.Color(255, 153, 153));
+        quitButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        quitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/quit.png"))); // NOI18N
+        quitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        quitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                quitMouseClicked(evt);
+                quitButtonMouseClicked(evt);
             }
         });
 
@@ -168,14 +169,14 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Register, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(monitor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(monitorButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(configure, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(configureButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(83, Short.MAX_VALUE))
@@ -186,16 +187,16 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(configure)
-                    .addComponent(Register))
+                    .addComponent(configureButton)
+                    .addComponent(registerButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(monitor)
-                    .addComponent(quit))
+                    .addComponent(monitorButton)
+                    .addComponent(quitButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,39 +218,36 @@ public class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RegisterActionPerformed
+    }//GEN-LAST:event_registerButtonActionPerformed
     //ActionListener for directing to Register window.
-    private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
-        Register_a_sensor R=new Register_a_sensor();
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
+        RegisterSensor R=new RegisterSensor();
         R.setVisible(true);
-        dashboard=this;
-        dashboard.setVisible(false);
-    }//GEN-LAST:event_RegisterMouseClicked
+        dashBoard=this;
+        dashBoard.setVisible(false);
+    }//GEN-LAST:event_registerButtonMouseClicked
     //ActionListener for directing to Configure window.
-    private void configureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configureMouseClicked
+    private void configureButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configureButtonMouseClicked
         // TODO add your handling code here:
-        Configure_a_sensor C=new Configure_a_sensor();
+        ConfigureSensor C=new ConfigureSensor();
         C.setVisible(true);
-        dashboard.setVisible(false);
-    }//GEN-LAST:event_configureMouseClicked
+        dashBoard.setVisible(false);
+    }//GEN-LAST:event_configureButtonMouseClicked
     //ActionListener for Quiting window.
-    private void quitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitMouseClicked
+    private void quitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitButtonMouseClicked
         if(isLogTimer==true)
-            Configure_a_sensor.logtimer.cancel();
+            ConfigureSensor.logTimer.cancel();
         System.exit(0);
-        //dashboard.dispose();
-    }//GEN-LAST:event_quitMouseClicked
+    }//GEN-LAST:event_quitButtonMouseClicked
     //ActionListener for directing to StartMonituring window.
-    private void monitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorMouseClicked
+    private void monitorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorButtonMouseClicked
         // TODO add your handling code here:
-        Start_Monitoring S=new Start_Monitoring();
-        S.setVisible(true);
-        TimerTask task = new timerTask();
-        timer.scheduleAtFixedRate(task, 0, 2000);
-        dashboard.setVisible(false);
-    }//GEN-LAST:event_monitorMouseClicked
+        MonitorScreen M=new MonitorScreen();
+        M.setVisible(true);
+        dashBoard.setVisible(false);
+    }//GEN-LAST:event_monitorButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -277,7 +275,7 @@ public class MainScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        welcome w=new welcome();
+        WelcomeScreen w=new WelcomeScreen();
         w.setVisible(true);
         try {
             Thread.sleep(1500);
@@ -294,17 +292,17 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton Register;
-    public static javax.swing.JButton configure;
+    public static javax.swing.JButton configureButton;
+    private javax.swing.JLabel dashboardLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton monitor;
-    public static javax.swing.JButton quit;
+    private javax.swing.JButton monitorButton;
+    public static javax.swing.JButton quitButton;
+    public static javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

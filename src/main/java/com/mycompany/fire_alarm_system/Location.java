@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.fire_alarm_system;
-
+//import floor hashmaps
 import static com.mycompany.fire_alarm_system.MainScreen.f0;
 import static com.mycompany.fire_alarm_system.MainScreen.f1;
 import static com.mycompany.fire_alarm_system.MainScreen.f2;
@@ -18,125 +18,132 @@ import java.util.Map;
  *
  * @author rajen
  */
-/**
-Stvalue, Htvalue, Ctvalue, Scvalue, Hcvalue, Ccvalue, Sid, Hid, Cid,;
-*/
+//Location class for storing all details of a location
 public class Location {
-    static float Stvalue, Htvalue, Ctvalue;
-    static int Sdur, Hdur, Cdur, log=10, vol=90;
-    float Scvalue, Hcvalue, Ccvalue;
-    int mcp;
-    String Sid, Hid, Cid;
+    //static threshold values for 3 types of sensors common for every location
+    static float smokeThValue, heatThValue, coThValue;
+    //static duration, log interval and volume common to all locations
+    static int smokeAlarmDuration, heatAlarmDuration, coAlarmDuration, logInterval=10, alarmVolume=90;
+    //float cuurent values for 3 types of sensors specific to each location 
+    float smokeCrValue, heatCrValue, coCrValue;
+    //variable holding 0 for manual alarm not triggered and 1 for manual alarm triggered in CC3
+    int isManualAlarmTriggered;
+    //ID strings for each type of sensor at each location
+    String smokeID, heatID, coID;
+    //constructor for initialising sensor IDs to null strings and current values to 0 at each location
     Location(){
-        Scvalue=0;
-        Hcvalue=0;
-        Ccvalue=0;
-        Sid=""; 
-        Hid=""; 
-        Cid="";   
+        smokeCrValue=0;
+        heatCrValue=0;
+        coCrValue=0;
+        smokeID=""; 
+        heatID=""; 
+        coID="";   
     }
-    
-//    public void setLoc(Sensor s){
-//        loc=s.location;
-//    }
+    //methods to set static values common for each type of sensor
     public static void conSsensor(int d, int v, int l, float t){
-        Sdur=d; vol=v; log=l; Stvalue=t;
+        smokeAlarmDuration=d; alarmVolume=v; logInterval=l; smokeThValue=t;
     }
     public static void conHsensor(int d, int v, int l, float t){
-        Hdur=d; vol=v; log=l; Htvalue=t;
+        heatAlarmDuration=d; alarmVolume=v; logInterval=l; heatThValue=t;
     }
     public static void conCsensor(int d, int v, int l, float t){
-        Cdur=d; vol=v; log=l; Ctvalue=t;
+        coAlarmDuration=d; alarmVolume=v; logInterval=l; coThValue=t;
     }
+    //methods to set current values using random generator for each sensor at each location
+    //max current value is 1.02 times of threshold to simulate low probability of breaching threshold 
     public void setScvalue(){
-        float min=Stvalue/2;
-        float max=(float) (Stvalue*1.05);
-        Scvalue=RandomGenerator.RandomGenerator(min, max);
+        float min=smokeThValue/2;
+        float max=(float) (smokeThValue*1.02);
+        smokeCrValue=RandomGenerator.RandomGenerator(min, max);
     }
     public void setHcvalue(){
-        float min=Htvalue/2;
-        float max=(float) (Htvalue*1.05);
-        Hcvalue=RandomGenerator.RandomGenerator(min, max);
+        float min=heatThValue/2;
+        float max=(float) (heatThValue*1.02);
+        heatCrValue=RandomGenerator.RandomGenerator(min, max);
     }
     public void setCcvalue(){
-        float min=Ctvalue/2;
-        float max=(float) (Ctvalue*1.05);
-        Ccvalue=RandomGenerator.RandomGenerator(min, max);
+        float min=coThValue/2;
+        float max=(float) (coThValue*1.02);
+        coCrValue=RandomGenerator.RandomGenerator(min, max);
     }
+    //method to set mcp to 0 or 1 
     public void setmcp(){
         float min=0;
-        float max=(float) (1.05);
-        mcp=(int) floor(RandomGenerator.RandomGenerator(min, max));
+        float max=(float) (1.02);
+        isManualAlarmTriggered=(int) floor(RandomGenerator.RandomGenerator(min, max));
     }
+    //method to set current values for each location cuurently present in the hashmaps of floor by iterating through hashmaps
+    //if the sensor id of a location is not null string, it knows then that that type of sensor has been registered and sets a-- 
+    //--random value by using previous methods 
     public static void allSet(){
         for(Map.Entry<String,Location> mp : f0.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();
         }
         for(Map.Entry<String,Location> mp : f1.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();
         }
         for(Map.Entry<String,Location> mp : f2.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();
         }
         for(Map.Entry<String,Location> mp : f3.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();
         }
         for(Map.Entry<String,Location> mp : f4.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();
         }
         for(Map.Entry<String,Location> mp : f5.entrySet()){
-            if(!mp.getValue().Sid.equals("")){
+            if(!mp.getValue().smokeID.equals("")){
                 mp.getValue().setScvalue();
             }
-            if(!mp.getValue().Hid.equals("")){
+            if(!mp.getValue().heatID.equals("")){
                 mp.getValue().setHcvalue();
             }
-            if(!mp.getValue().Cid.equals("")){
+            if(!mp.getValue().coID.equals("")){
                 mp.getValue().setCcvalue();
             }
             mp.getValue().setmcp();

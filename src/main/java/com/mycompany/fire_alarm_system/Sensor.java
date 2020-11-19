@@ -11,7 +11,7 @@ package com.mycompany.fire_alarm_system;
 import java.io.Serializable;
 
 public class Sensor implements Serializable {
-    public String SensorID, location, SensorType;
+    public String sensorID, location, SensorType;
     public int floorno;
     public static float thresholdCO;
     public static float thresholdSmoke;
@@ -22,8 +22,7 @@ public class Sensor implements Serializable {
     
     @Override
     public String toString() {
-        return new StringBuffer(" Sensor ID : ").append(this.SensorID)
+        return new StringBuffer(" Sensor ID : ").append(this.sensorID)
                 .append(" Location : ").append(this.location).append("SensorType : ").append(this.SensorType).append(" Floorno : ").append(this.floorno).toString();
-    }
-    
+    } 
 }

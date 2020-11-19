@@ -29,7 +29,8 @@ public class Email{
            //send message  
            Transport.send(message);    
            System.out.println("message sent successfully");    
-          } catch (MessagingException e) {throw new RuntimeException(e);}    
+          } 
+          catch (MessagingException e) {throw new RuntimeException(e);}    
              
     }  
 }  
